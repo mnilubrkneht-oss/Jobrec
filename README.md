@@ -1,2 +1,2 @@
 # Jobrec
-የአሰሪና ሰሪ አገናኝ መድረክ
+jobs-connect-platform
