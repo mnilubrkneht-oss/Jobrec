@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="am">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">የስራ/ሰሪዎች ዝርዝር</title>
+    <link rel="stylesheet" href="style.css"> 
+    <style>
+        /* ለዝርዝሩ ብቻ የሚሆን ስታይል */
+        .listing-card {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            text-align: left;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            transition: transform 0.2s;
+        }
+        .listing-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .listing-card h4 {
+            color: #007bff;
+            margin-top: 0;
+        }
+        .details-btn {
+            background-color: #28a745;
+            color: white;
+            padding: 8px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        #listings-container {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 id="header-title">የዝርዝር ገጽ</h1>
+    </header>
+
+    <main>
+        <h2 id="current-selection">...</h2>
+        
+        <section id="listings-container">
+            </section>
+        
+        <a href="selection.html" class="btn secondary-btn" style="width: auto;">&larr; ወደ ኋላ ተመለስ</a>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 የስራ አገናኝ መድረክ።</p>
+    </footer>
+
+    <script>
+        // ምናባዊ የሆኑ መረጃዎች (ይህ በኋላ በእውነተኛ ዳታቤዝ ይተካል)
+        const dummyData = {
+            employer: [
+                { id: 101, title: 'ድርጅት ሀ', type: 'የሂሳብ ባለሙያ', experience: '3 ዓመት', location: 'አዲስ አበባ' },
+                { id: 102, title: 'ድርጅት ለ', type: 'ግንበኛ (ግለሰብ ስራ)', experience: '5 ዓመት', location: 'አዳማ' },
+                { id: 103, title: 'ድርጅት ሐ', type: 'ቤት ሰራተኛ (ግለሰብ ስራ)', experience: '2 ዓመት', location: 'ሀዋሳ' },
+            ],
+            worker: [
+                { id: 201, title: 'አበበ ከበደ', type: 'ሶፍትዌር ገንቢ', age: 28, experience: '4 ዓመት' },
+                { id: 202, title: 'ፋጡማ መሐመድ', type: 'አስተናጋጅ', age: 22, experience: '1 ዓመት' },
+                { id: 203, title: 'ተክሉ ገብረ', type: 'ሾፌር', age: 35, experience: '7 ዓመት' },
+            ]
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const role = params.get('role'); // ሰሪ ወይስ አሰሪ?
+            const container = document.getElementById('listings-container');
+            const headerTitle = document.getElementById('header-title');
+            const currentSelection = document.getElementById('current-selection');
+            const pageTitle = document.getElementById('page-title');
+
+            let listings = [];
+            let headerText = '';
+
+            if (role === 'employer') {
+                // አሰሪዎች ከገቡ ሰሪዎችን ማየት ይፈልጋሉ
+                listings = dummyData.worker;
+                headerText = 'የሚገኙ ሰሪዎች ዝርዝር';
+                currentSelection.textContent = 'አሰሪ ሆነው ስለገቡ ሰሪዎችን እየፈለጉ ነው';
+                pageTitle.textContent = 'የሰሪዎች ዝርዝር';
+
+            } else if (role === 'worker') {
+                // ሰሪዎች ከገቡ የስራ ማስታወቂያዎችን ማየት ይፈልጋሉ
+                listings = dummyData.employer;
+                headerText = 'ክፍት የስራ ማስታወቂያዎች ዝርዝር';
+                currentSelection.textContent = 'ሰሪ ሆነው ስለገቡ ክፍት ስራዎችን እየፈለጉ ነው';
+                pageTitle.textContent = 'የስራ ማስታወቂያ ዝርዝር';
+            }
+
+            headerTitle.textContent = headerText;
+            
+            // መረጃውን በገጹ ላይ ማሳየት
+            if (listings.length > 0) {
+                listings.forEach(item => {
+                    const card = document.createElement('div');
+                    card.className = 'listing-card';
+
+                    let content = `<h4>${item.title} - ${item.type}</h4>`;
+
+                    if (role === 'employer') {
+                        // ሰሪ ከሆነ
+                        content += `<p><strong>እድሜ:</strong> ${item.age} | <strong>የስራ ልምድ:</strong> ${item.experience}</p>`;
+                    } else if (role === 'worker') {
+                        // ስራ ከሆነ
+                        content += `<p><strong>ቦታ:</strong> ${item.location} | <strong>የሚፈለግ ልምድ:</strong> ${item.experience}</p>`;
+                    }
+                    
+                    // ዝርዝር ገጽ ማገናኛ (ይህ ገጽ ገና አልተሰራም)
+                    content += `<a href="detail.html?id=${item.id}&role=${role}" class="details-btn">ዝርዝር መረጃ ይመልከቱ</a>`;
+                    
+                    card.innerHTML = content;
+                    container.appendChild(card);
+                });
+            } else {
+                container.innerHTML = '<p>በምርጫዎ መሰረት ምንም ዝርዝር አልተገኘም።</p>';
+            }
+        });
+    </script>
+</body>
+</html>
