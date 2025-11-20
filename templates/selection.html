@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="am">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>አገልግሎት ይምረጡ</title>
+    <!-- CSS Linkን በ Flask/Jinja በትክክል ማገናኘት -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="logo">ስራ ፍለጋና ትስስር</div>
+        <nav>
+            <a href="/">መነሻ</a>
+            <a href="#">መረጃ</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <!-- ይህ ገጽ ከ index.html ሲመጣ 'ድርጅት' ወይም 'ግለሰብ' የሚለውን አይነት ያሳያል -->
+        <h1>አገልግሎት ይምረጡ</h1>
+        <p>ከዚህ በታች ከድርጅት ወይም ከግለሰብ ጋር በተያያዘ የፈለጉትን አገልግሎት ይምረጡ።</p>
+
+        <div class="selection-grid">
+            <!-- ለድርጅት አገልግሎቶች -->
+            <div class="card">
+                <h2>የስራ ማስታወቂያ ይመልከቱ</h2>
+                <p>በተለያዩ ዘርፎች የወጡትን የድርጅት የስራ ማስታወቂያዎች ይመልከቱ።</p>
+                <a href="/listings?category=jobs" class="btn primary-btn">ማስታወቂያዎችን ይመልከቱ</a>
+            </div>
+
+            <!-- ለግለሰብ አገልግሎቶች -->
+            <div class="card">
+                <h2>ሲቪ እና ፕሮፋይል ይፈልጉ</h2>
+                <p>በፍላጎትዎ መሰረት የተዘጋጁ የባለሙያዎችን ሲቪዎች ይመልከቱ።</p>
+                <a href="/listings?category=cvs" class="btn secondary-btn">ሲቪዎችን ይመልከቱ</a>
+            </div>
+            
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 ስራ ፍለጋና ትስስር. ሁሉም መብቶች የተጠበቁ ናቸው።</p>
+    </footer>
+</body>
+</html>

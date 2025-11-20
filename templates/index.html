@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="am">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ስራ ፍለጋና ትስስር - መነሻ</title>
+    <!-- CSS Linkን በትክክል ማገናኘት -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="logo">ስራ ፍለጋና ትስስር</div>
+        <nav>
+            <a href="/">መነሻ</a>
+            <a href="/selection">ምርጫ</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="hero-section">
+            <h1>ስራ ፍለጋና ትስስር መድረክ</h1>
+            <p>ድርጅቶችን ከባለሙያዎች ጋር፣ እንዲሁም ባለሙያዎችን ከድርጅቶች የስራ ማስታወቂያ ጋር የምናገናኝበት ዲጂታል መድረክ።</p>
+            
+            <div class="action-buttons">
+                <!-- ወደ ምርጫ ገጽ የሚወስድ አዝራር -->
+                <a href="/selection" class="btn primary-btn large-btn">አሁን ይጀምሩ</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 ስራ ፍለጋና ትስስር. ሁሉም መብቶች የተጠበቁ ናቸው።</p>
+    </footer>
+</body>
+</html>

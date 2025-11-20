@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="am">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>የስራ ዝርዝር መረጃ</title>
+    <!-- CSS Linkን በ Flask/Jinja በትክክል ማገናኘት -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="logo">ስራ ፍለጋና ትስስር</div>
+        <nav>
+            <a href="/">መነሻ</a>
+            <a href="/listings?category=jobs">የስራ ዝርዝር</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <!-- የሥራ ማስታወቂያ ዝርዝር መረጃ -->
+        <section class="detail-card">
+            <h1>ሲኒየር የሶፍትዌር ገንቢ (Senior Software Developer)</h1>
+            
+            <div class="info-grid">
+                <p><strong>ድርጅት:</strong> አብዮት ቴክኖሎጂስ</p>
+                <p><strong>ቦታ:</strong> አዲስ አበባ</p>
+                <p><strong>የስራ አይነት:</strong> ሙሉ ጊዜ (Full-time)</p>
+                <p><strong>የመጨረሻ ቀን:</strong> ሰኔ 30፣ 2017</p>
+            </div>
+
+            <h2>ዋና ዋና ኃላፊነቶች:</h2>
+            <ul>
+                <li>ውስብስብ ሶፍትዌር ዲዛይንና ግንባታ።</li>
+                <li>ለሌሎች ገንቢዎች የቴክኒክ ድጋፍና መምራት።</li>
+                <li>የኮድ ጥራትን ማረጋገጥ እና ኮድ ሪቪው ማድረግ።</li>
+                <li>ከምርት ቡድኖች ጋር በቅርበት መሥራት።</li>
+            </ul>
+
+            <h2>የሚያስፈልጉ መስፈርቶች:</h2>
+            <ul>
+                <li>ከኮምፒውተር ሳይንስ ወይም ተዛማጅ መስክ የመጀመሪያ ዲግሪ።</li>
+                <li>ቢያንስ 5 ዓመት የሶፍትዌር ልማት ልምድ።</li>
+                <li>በ Python/Django ወይም Node.js/React ጥሩ ልምድ።</li>
+                <li>በዳታቤዝ አስተዳደር (PostgreSQL/MongoDB) እውቀት።</li>
+            </ul>
+
+            <button class="btn primary-btn large-btn">ለዚህ ስራ ያመልክቱ</button>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 ስራ ፍለጋና ትስስር. ሁሉም መብቶች የተጠበቁ ናቸው።</p>
+    </footer>
+</body>
+</html>

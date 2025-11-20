@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="am">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>የስራ ማስታወቂያ ዝርዝር</title>
+    <!-- ይህ መስመር ነው የተስተካከለው -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="logo">ስራ ፍለጋና ትስስር</div>
+        <nav>
+            <a href="/">መነሻ</a>
+            <a href="/selection">ምርጫ</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h1>የስራ ማስታወቂያ ዝርዝር</h1>
+        <p>እነዚህ አሁን የወጡ አዳዲስ የሥራ ማስታወቂያዎች ናቸው። ዝርዝር መረጃ ለማየት አንዱን ይምረጡ።</p>
+        
+        <!-- የሥራ ዝርዝር ካርዶች ለጊዜው -->
+        <div class="job-listings">
+            <div class="job-card">
+                <h2>ሲኒየር የሶፍትዌር ገንቢ</h2>
+                <p><strong>ድርጅት:</strong> አብዮት ቴክኖሎጂስ</p>
+                <p><strong>ቦታ:</strong> አዲስ አበባ</p>
+                <!-- ወደ detail ገጽ የሚወስድ ሊንክ -->
+                <a href="/detail?job_id=1" class="btn secondary-btn">ዝርዝር መረጃ ይመልከቱ</a>
+            </div>
+
+            <div class="job-card">
+                <h2>የፕሮጀክት አስተባባሪ</h2>
+                <p><strong>ድርጅት:</strong> ንጋት ኮንስትራክሽን</p>
+                <p><strong>ቦታ:</strong> አዲስ አበባ / ቅርንጫፎች</p>
+                <a href="/detail?job_id=2" class="btn secondary-btn">ዝርዝር መረጃ ይመልከቱ</a>
+            </div>
+
+            <div class="job-card">
+                <h2>ግራፊክ ዲዛይነር</h2>
+                <p><strong>ድርጅት:</strong> ፈጠራ ማርኬቲንግ</p>
+                <p><strong>ቦታ:</strong> ሪሞት (Remote)</p>
+                <a href="/detail?job_id=3" class="btn secondary-btn">ዝርዝር መረጃ ይመልከቱ</a>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 ስራ ፍለጋና ትስስር. ሁሉም መብቶች የተጠበቁ ናቸው።</p>
+    </footer>
+</body>
+</html>
